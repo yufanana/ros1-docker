@@ -36,14 +36,14 @@ RUN apt update && \
   && apt clean
 
 # Install CUDA Toolkit
-RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-RUN dpkg -i cuda-keyring_1.1-1_all.deb
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    cuda-toolkit-12.2 \
-    nvidia-gds \
-    && rm -rf /var/lib/apt/lists/*
-ENV PATH="/usr/local/cuda-12.2/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/usr/local/cuda-12.2/lib64:${LD_LIBRARY_PATH}"
+# RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+# RUN dpkg -i cuda-keyring_1.1-1_all.deb
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     cuda-toolkit-12.2 \
+#     nvidia-gds \
+#     && rm -rf /var/lib/apt/lists/*
+# ENV PATH="/usr/local/cuda-12.2/bin:${PATH}"
+# ENV LD_LIBRARY_PATH="/usr/local/cuda-12.2/lib64:${LD_LIBRARY_PATH}"
 
 # Install python requirements
 COPY requirements.txt requirements.txt

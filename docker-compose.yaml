@@ -59,13 +59,15 @@ services:
     #environment:
       #- "ROS_IP=xxx.xx.xx.xx"
       #- "ROS_MASTER_URI=http://xxx.xx.xx.xx:11311"
-
-    #volumes:
-      ## Mount the source code
-      ##- ../some_folder:/overlay_ws/src/some_folder:rw
     volumes:
       # Mount the source code
       - ./src:/overlay_ws/src/:rw 
+      # - ./bags:/overlay_ws/bags/:rw 
+      # Mount catkin build artifacts for faster rebuilds
+      - ./.catkin/devel/:/overlay_ws/devel/:rw
+      - ./.catkin/build/:/overlay_ws/build/:rw
+      - ./.catkin/install/:/overlay_ws/install/:rw
+      - ./.catkin/log/:/overlay_ws/log/:rw
 
     user: ${USERNAME:-devuser}
     command: bash -c "sudo chmod 777 -R /overlay_ws/ && exec sleep infinity"

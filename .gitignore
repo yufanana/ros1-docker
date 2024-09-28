@@ -1,3 +1,9 @@
+# ROS build artifacts
 .colcon/
+.catkin/
+
+# Data
+*.bag
+
 .vscode/
 **/__pycache__/
